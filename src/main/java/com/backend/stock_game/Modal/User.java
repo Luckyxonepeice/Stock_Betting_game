@@ -41,4 +41,14 @@ public class User {
     @Email(message = "Email required")
     private String email;
 
+    public String getAvatarId() {
+        return avatarId;
+    }
+
+    public void setAvatarId(String avatarId) {
+        this.avatarId = avatarId;
+    }
+
+    private String avatarId;
+
 }

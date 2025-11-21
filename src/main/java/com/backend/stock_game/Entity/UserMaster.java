@@ -16,8 +16,16 @@ public class UserMaster {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    public Avatar getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(Avatar avatar) {
+        this.avatar = avatar;
+    }
+
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "avatar_id")
     private Avatar avatar;
 
     @NotNull

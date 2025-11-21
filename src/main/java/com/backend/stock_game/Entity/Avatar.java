@@ -1,5 +1,6 @@
 package com.backend.stock_game.Entity;
 
+import com.backend.stock_game.Modal.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -16,6 +17,20 @@ public class Avatar {
     @Lob
     @Column(nullable = false)
     private byte[] imageData;
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+//    @OneToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "id")
+//    private User user;
+
+    @Column(nullable = false)
+    private String fileName;
 
     public byte[] getImageData() {
         return imageData;
