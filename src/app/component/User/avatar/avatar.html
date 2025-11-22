@@ -1,0 +1,37 @@
+<div class="screen">
+  <div class="card" role="application" aria-label="Avatar selector">
+    <h1>Choose an avatar</h1>
+    <p class="lead">Click to pick one.</p>
+
+    <div class="grid" id="avatars">
+
+        @for(images of fileName ; track i ; let i = $index) { 
+
+            <button (click)="selectAvatar(i)" class="avatar">
+                <img src="{{urlImage + images}}" alt="Avatar">
+                <div class="check" [ngStyle]="{
+                    'background': selectedIndex === i ? 'green' : null
+                }">✓</div>
+            </button>
+        }
+
+    </div>
+
+    <div class="actions">
+      <div class="preview">
+        <div class="big" id="preview">
+          <img [src]="selectedIndex !==-1 ? (urlImage + fileName[selectedIndex]) : null" alt="Preview">
+        </div>
+        <div>
+          <div class="label-title">Selected</div>
+          <div class="label-text" id="selected-label">Avatar</div>
+        </div>
+      </div>
+
+      <div>
+        <button class="btn" id="choose">Choose</button>
+        <button (click)="selectedIndex=-1" class="btn secondary" id="clear">Clear</button>
+      </div>
+    </div>
+  </div>
+</div>
